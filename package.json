@@ -5,9 +5,20 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "docker:build": "docker build -t btc-trading-suancaiyu:latest .",
+    "docker:up": "docker compose up -d --build",
+    "docker:down": "docker compose down",
+    "test:smoke": "bash scripts/smoke-test.sh http://localhost:3000 basic",
+    "test:smoke:full": "bash scripts/smoke-test.sh http://localhost:3000 full"
   },
-  "keywords": ["btc", "trading", "binance", "ema", "kdj"],
+  "keywords": [
+    "btc",
+    "trading",
+    "binance",
+    "ema",
+    "kdj"
+  ],
   "author": "a97037753-cloud",
   "license": "MIT",
   "dependencies": {
