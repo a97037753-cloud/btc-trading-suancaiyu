@@ -73,6 +73,44 @@ npm start
 
 在浏览器中访问: **http://localhost:3000**
 
+
+## 🐳 Docker 部署（推荐生产环境）
+
+### 1. 准备环境变量
+
+```bash
+cp .env.example .env
+# 编辑 .env，填入 BINANCE_API_KEY / BINANCE_API_SECRET
+```
+
+### 2. 启动服务
+
+```bash
+docker compose up -d --build
+```
+
+### 3. 检查运行状态
+
+```bash
+docker compose ps
+curl http://localhost:3000/api/health
+```
+
+### 4. 常用运维命令
+
+```bash
+# 查看日志
+docker compose logs -f
+
+# 重启服务
+docker compose restart
+
+# 停止并删除容器
+docker compose down
+```
+
+> 默认对外端口为 `3000`，如需修改请编辑 `docker-compose.yml` 的端口映射。
+
 ## 📡 API 接口文档
 
 ### 获取完整分析
